@@ -59,4 +59,4 @@
     Function confirmCallback // 确认按钮回调， 如果没有confirmCallback，那么这个按钮不会显示
 
 组件使用效果
-![Image text](https://github.com/zhangkejian0/kview/blob/master/image/circleProgress.png)
+![Image text](https://github.com/zhangkejian0/flutter-keui/blob/master/images/DialogWidget.jpg)
