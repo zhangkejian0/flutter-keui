@@ -65,4 +65,4 @@
 flutter_echarts链接: (https://github.com/entronad/flutter_echarts/blob/master/README_CN.md)
 
 组件使用效果
-![Image text](https://github.com/zhangkejian0/flutter-keui/blob/master/images/echart.jpg)
+![Image text](https://github.com/zhangkejian0/flutter-keui/blob/echart/images/echart.jpg)
