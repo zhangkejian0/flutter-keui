@@ -66,3 +66,9 @@ flutter_echarts链接: (https://github.com/entronad/flutter_echarts/blob/master/
 
 组件使用效果
 ![Image text](https://github.com/zhangkejian0/flutter-keui/blob/echart/images/echart.jpg)
+
+
+### 3， echarts_flutter 绘制油表图
+
+组件使用效果
+![Image text](https://github.com/zhangkejian0/flutter-keui/blob/charts_flutter/images/gauge.jpg)
