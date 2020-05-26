@@ -69,6 +69,61 @@ flutter_echarts链接: (https://github.com/entronad/flutter_echarts/blob/master/
 
 
 ### 3， echarts_flutter 绘制油表图
+    class GaugeChart extends StatefulWidget {
+        @override
+        _GaugeChartState createState() => _GaugeChartState();
+        }
+
+        class _GaugeChartState extends State<GaugeChart> {
+        List<charts.Series>  seriesList = [charts.Series<GaugeSegment, String>(
+            id: 'Segments',
+            domainFn: (GaugeSegment segment, _) => segment.segment,
+            measureFn: (GaugeSegment segment, _) => segment.size,
+            data: [
+                GaugeSegment('Low', 100, charts.Color(
+                r: 255, g: 83, b: 83,)),
+                GaugeSegment('Acceptable', 100, charts.Color(
+                r: 93, g: 243, b: 145)),
+                GaugeSegment('High', 100,  charts.Color(
+                r: 255, g: 184, b: 92)),
+            ],
+            colorFn: (GaugeSegment segment, _) => segment.color,
+        )];
+
+        double angle = 0.3 * pi;
+        @override
+        void initState() {
+            // TODO: implement initState
+            super.initState();
+        }
+        @override
+
+
+        Widget build(BuildContext context) {
+            return Scaffold(
+                body: Container(
+                    width: 400,
+                    height: 800,
+                    child: gaugeChart(
+                        seriesList,
+                        animate: true,
+                        arcWidth: 40,
+                        angle: angle
+                    ),
+                )
+                );
+            }
+        }
+
+        /**
+        * 实现油表盘的二次封装
+        * seriesList，animate 参考charts_flutter文档
+        * arcWidth 圆环宽度
+        * lineColor 表针颜色
+        * lineLength 表针长度
+        * angle 指针旋转角度 9点钟方向顺时针
+        * 
+        */
 
 组件使用效果
 ![Image text](https://github.com/zhangkejian0/flutter-keui/blob/charts_flutter/images/gauge.jpg)
