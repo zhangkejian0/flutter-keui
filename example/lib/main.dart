@@ -6,6 +6,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:charts_flutter/flutter.dart' as charts;
 import './gauge.dart';
 import './lineChart.dart';
+import './SignalPower.dart';
 
 void main() {
   runApp(MyApp());
@@ -72,6 +73,12 @@ class _MyHomePageState extends State<MyHomePage> {
                 Navigator.push(context, MaterialPageRoute(builder: (context)=> LineChart()));
               },
               child: Text('折线图'),
+            ),
+            CupertinoButton(
+              onPressed: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context)=> SingalPower()));
+              },
+              child: Text('电池and信号'),
             )
           ],
         )
