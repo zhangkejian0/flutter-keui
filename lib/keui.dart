@@ -8,3 +8,4 @@ import 'package:charts_flutter/flutter.dart' as charts;
 part 'library/dialog_widget.dart';
 part 'library/singalPower.dart';
 part 'library/gaugeChart.dart';
+part 'library/painterLiquidlevel.dart';

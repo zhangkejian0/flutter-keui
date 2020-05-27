@@ -7,6 +7,7 @@ import 'package:charts_flutter/flutter.dart' as charts;
 import './gauge.dart';
 import './lineChart.dart';
 import './SignalPower.dart';
+import './liquidlevel.dart';
 
 void main() {
   runApp(MyApp());
@@ -79,6 +80,12 @@ class _MyHomePageState extends State<MyHomePage> {
                 Navigator.push(context, MaterialPageRoute(builder: (context)=> SingalPower()));
               },
               child: Text('电池and信号'),
+            ),
+            CupertinoButton(
+              onPressed: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context)=> Liquidlevel()));
+              },
+              child: Text('液位仪'),
             )
           ],
         )

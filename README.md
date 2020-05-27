@@ -155,3 +155,24 @@ flutter_echarts链接: (https://github.com/entronad/flutter_echarts/blob/master/
 
 组件使用效果
 ![Image text](https://github.com/zhangkejian0/flutter-keui/blob/charts_flutter/images/SingalPower.jpg)
+
+### 3， Canvas 绘制液位仪
+
+    Container(
+        width: 100,
+        height: 200,
+        child: CustomPaint(
+        foregroundPainter: PainterLiquidlevel(value:60)
+        )
+    )
+
+    /**
+    * 根据Container创建Canvas画布大小
+    * value 当前液位值 （0-100）
+    * maxThreshold 预警线范围最大值 （0-100）默认85
+    * minThreshold  预警线范围最小值 （0-100）默认20
+    * auto  液位颜色是否自适应 =true 根据预警值颜色改变 =false 蓝色
+    */
+
+组件使用效果
+![Image text](https://github.com/zhangkejian0/flutter-keui/blob/master/images/Liquidlevel.jpg)
