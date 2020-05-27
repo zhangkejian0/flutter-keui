@@ -1,6 +1,6 @@
 
 part of keui;
-Widget gaugeChart(List<charts.Series> seriesList, {bool animate, num arcWidth, Color lineColor, num lineLength, double angle}){
+Widget gaugeChart(List<charts.Series> seriesList, {bool animate = false, num arcWidth=30, Color lineColor, num lineLength=20.0, double angle = 0.0}){
   /**
    * 实现油表盘的二次封装
    * seriesList，animate 参考charts_flutter文档

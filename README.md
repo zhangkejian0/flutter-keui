@@ -116,6 +116,7 @@ flutter_echarts链接: (https://github.com/entronad/flutter_echarts/blob/master/
         }
 
         /**
+        * Container 要有width、height 必须要有值
         * 实现油表盘的二次封装
         * seriesList，animate 参考charts_flutter文档
         * arcWidth 圆环宽度
