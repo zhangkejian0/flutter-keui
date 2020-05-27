@@ -127,3 +127,31 @@ flutter_echarts链接: (https://github.com/entronad/flutter_echarts/blob/master/
 
 组件使用效果
 ![Image text](https://github.com/zhangkejian0/flutter-keui/blob/charts_flutter/images/gauge.jpg)
+
+### 3， Canvas 绘制电池and信号
+
+    Container(
+        height: 100,
+        width: 200,
+        child: CustomPaint(
+        foregroundPainter: PainterPower(value: 10)
+        ),
+    )
+
+    Container(
+        margin: EdgeInsetsDirectional.only(top:20),
+        height: 100,
+        width: 100,
+        child: CustomPaint(
+        foregroundPainter: PainterSingal(value: 20)
+        ),
+    ),
+    
+    /**
+    * 根据Container创建Canvas画布大小
+    * value 当前电量或信号值（0-100）
+    * threshold 低电量或信号阀值（默认20）
+    */
+
+组件使用效果
+![Image text](https://github.com/zhangkejian0/flutter-keui/blob/charts_flutter/images/SingalPower.jpg)
