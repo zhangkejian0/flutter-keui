@@ -156,7 +156,7 @@ flutter_echarts链接: (https://github.com/entronad/flutter_echarts/blob/master/
 组件使用效果
 ![Image text](https://github.com/zhangkejian0/flutter-keui/blob/charts_flutter/images/SingalPower.jpg)
 
-### 3， Canvas 绘制液位仪
+### 4， Canvas 绘制液位仪
 
     Container(
         width: 100,
