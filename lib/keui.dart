@@ -1,11 +1,13 @@
 library keui;
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:image_picker/image_picker.dart';
+import 'package:photo_view/photo_view.dart';
 import 'dart:ui';
 import 'dart:math';
-import 'package:charts_flutter/flutter.dart' as charts;
 
 part 'library/dialog_widget.dart';
-part 'library/singalPower.dart';
-part 'library/gaugeChart.dart';
-part 'library/painterLiquidlevel.dart';
+part 'library/Uploader.dart';
+part 'library/PhotoViewSimpleScreen.dart';

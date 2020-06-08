@@ -1,24 +1,24 @@
 part of keui;
 
 Future DialogWidget(context, {
-      String title = '提示', //弹窗标题 默认：提示
+      String title, //弹窗标题 默认：提示
       String message, //弹窗文字呢内容 默认：--
       Widget widget,
-      String cancelButtonText, //取消按钮文字 默认：取消
-      String confirmButtonText, //确认按钮文字 默认：确认
+      String cancelButtonText = '取消', //取消按钮文字 默认：取消
+      String confirmButtonText = '确定', //确认按钮文字 默认：确认
       Function cancelCallback, // 取消按钮回调， 如果没有cancelCallback，那么这个按钮不会显示
       Function confirmCallback // 确认按钮回调， 如果没有confirmCallback，那么这个按钮不会显示
 }){
   List<Widget> actions = [];
   Widget cancelWiget = CupertinoButton(
-    child: Text(cancelButtonText ?? "取消", style:  TextStyle(color: Color.fromRGBO(14, 16, 26, 1)),),
+    child: Text(cancelButtonText, style:  TextStyle(color: Color.fromRGBO(14, 16, 26, 1)),),
     onPressed: () {
       Navigator.pop(context);
       if (cancelCallback != null) cancelCallback();
     },
   );
   Widget confirmWiget = CupertinoButton(
-    child: Text(confirmButtonText ?? "确定", style:  TextStyle(color: Color.fromRGBO(43, 80, 230, 1)),),
+    child: Text(confirmButtonText, style:  TextStyle(color: Color.fromRGBO(43, 80, 230, 1)),),
     onPressed: () {
       Navigator.pop(context);
       if (confirmCallback != null) confirmCallback();
@@ -41,7 +41,7 @@ Future DialogWidget(context, {
         child: Scaffold(
           backgroundColor: Colors.transparent, // 设置透明背影
           body: CupertinoAlertDialog(
-            title: Padding(padding: EdgeInsets.only(bottom: 10),child: Text(title ?? "提示"),),
+            title: title == null ? title : Padding(padding: EdgeInsets.only(bottom: 10), child: Text(title),),
             content: widget != null ? widget : Center(child: Text(defaultValue(message)),),
             actions: actions.toList(),
           ),

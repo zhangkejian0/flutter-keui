@@ -1,13 +1,9 @@
 import 'dart:math';
-
 import 'package:flutter/material.dart';
-import 'package:keui/keui.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:charts_flutter/flutter.dart' as charts;
-import './gauge.dart';
-import './lineChart.dart';
-import './SignalPower.dart';
-import './liquidlevel.dart';
+
+import 'view/dialog/dialog.dart';
+import 'view/uploader/uploader.dart';
 
 void main() {
   runApp(MyApp());
@@ -36,84 +32,32 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  List<charts.Series> get seriesList => _createRandomData();
-  static List<charts.Series<GaugeSegment, String>> _createRandomData() {
-    final random = new Random();
-
-    final data = [
-      new GaugeSegment('Low', 0),
-      new GaugeSegment('Acceptable', random.nextInt(100)),
-      new GaugeSegment('High', random.nextInt(100)),
-      new GaugeSegment('Highly Unusual', random.nextInt(100)),
-    ];
-    return [
-      new charts.Series<GaugeSegment, String>(
-        id: 'Segments',
-        domainFn: (GaugeSegment segment, _) => segment.segment,
-        measureFn: (GaugeSegment segment, _) => segment.size,
-        data: data,
-      )
-    ];
-  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
           title: Text(widget.title),
         ),
-        body: Column(
+        body: ListView(
           children: <Widget>[
-            CupertinoButton(
-              onPressed: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context)=> GaugeChart()));
-              },
-              child: Text('油表图'),
+            ListTile(
+                trailing: Icon(Icons.keyboard_arrow_right),
+                title: Text('Dialog 弹出框'),
+                onTap: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=> DialogDemo()));
+                },
             ),
-            CupertinoButton(
-              onPressed: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context)=> LineChart()));
-              },
-              child: Text('折线图'),
+            Divider(height:10.0,indent:0.0,color: Colors.black12,),
+            ListTile(
+                trailing: Icon(Icons.keyboard_arrow_right),
+                title: Text('Uploader 文件上传'),
+                onTap: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=> UploaderDemo()));
+                },
             ),
-            CupertinoButton(
-              onPressed: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context)=> SingalPower()));
-              },
-              child: Text('电池and信号'),
-            ),
-            CupertinoButton(
-              onPressed: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context)=> Liquidlevel()));
-              },
-              child: Text('液位仪'),
-            )
+            Divider(height:10.0,indent:0.0,color: Colors.black12,),
           ],
         )
-        );
+    );
   }
-
-  static List<charts.Series<GaugeSegment, String>> _createSampleData() {
-    final data = [
-      new GaugeSegment('Low', 75),
-      new GaugeSegment('Acceptable', 100),
-      new GaugeSegment('High', 50),
-      new GaugeSegment('Highly Unusual', 5),
-    ];
-
-    return [
-      new charts.Series<GaugeSegment, String>(
-        id: 'Segments',
-        domainFn: (GaugeSegment segment, _) => segment.segment,
-        measureFn: (GaugeSegment segment, _) => segment.size,
-        data: data,
-      )
-    ];
-  }
-}
-
-/// Sample data type.
-class GaugeSegment {
-  final String segment;
-  final num size;
-  GaugeSegment(this.segment, this.size);
 }
