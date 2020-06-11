@@ -27,15 +27,18 @@ class _UploaderDemoState extends State<UploaderDemo> {
           // color: Colors.black12
         ),
         padding: EdgeInsets.all(10),
-        child: Uploader(context,lists,cancel: (value){
-          setState(() {
-            lists.remove(value);
-          });
-        }, getImage: (file){
-          print(file);
-          // 模拟拍照上传返回的图片
-          setState(() {
-            lists.add('https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1141259048,554497535&fm=26&gp=0.jpg');
+        child: UploaderImage(context,
+          lists,
+          style: Style(iconColor: Colors.red),
+          cancel: (value){
+            setState(() {
+              lists.remove(value);
+            });
+          }, getImage: (file){
+            print(file);
+            // 模拟拍照上传返回的图片
+            setState(() {
+              lists.add('https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1141259048,554497535&fm=26&gp=0.jpg');
           });
         }),
       ),

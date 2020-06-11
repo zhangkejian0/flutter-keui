@@ -1,9 +1,17 @@
 part of keui;
 
-Widget Uploader(context,List list,{
+class Style {
+  Color iconColor = Colors.black26;
+  Style({this.iconColor});
+}
+
+Widget UploaderImage(context,List list,{
   Function cancel,
-  @required getImage
+  @required Function getImage, // 返回图片file
+  num crossAxisCount = 3, // 一行显示的个数
+  Style style
 }){
+  
   final ImagePicker _picker = ImagePicker();
   List<Widget> initListWidget(List list) {
     List<Widget> lists = [];
@@ -105,7 +113,7 @@ Widget Uploader(context,List list,{
               right: 0,
               top: 0,
               child: GestureDetector(
-                child: Icon(Icons.cancel,color: Colors.black26,),
+                child: Icon(Icons.cancel,color: style.iconColor,),
                 onTap: (){
                   if(cancel != null) cancel(item);
                 }
@@ -117,15 +125,22 @@ Widget Uploader(context,List list,{
     }
     lists.add(Padding(padding: EdgeInsets.all(10),
       child: GestureDetector(
-        child: Container(
-          decoration: BoxDecoration(
-            color: Colors.black26,
-            borderRadius: BorderRadius.circular(10),
-          ),
-          child: Center(
-            child: Icon(Icons.camera_alt,color: Colors.black38,),
+        child: DottedBorder(
+          borderType: BorderType.RRect,
+          color: Colors.black26,
+          radius: Radius.circular(10),
+          child: Container(
+            decoration: BoxDecoration(
+              // color: Colors.black26,
+              borderRadius: BorderRadius.circular(10),
+            ),
+            child: Center(
+              child: Icon(Icons.camera_alt,color: Colors.black38,),
+            ),
           ),
         ),
+        
+        
         onTap: () async {
           showCupertinoModalPopup(
             context: context,
@@ -142,7 +157,7 @@ Widget Uploader(context,List list,{
 
   return Container(
     child: GridView.count(
-      crossAxisCount: 4,
+      crossAxisCount: crossAxisCount,
       crossAxisSpacing: 0,
       mainAxisSpacing: 0,
       // childAspectRatio: 2 / 2,
