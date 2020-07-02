@@ -1,6 +1,9 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:keui_example/view/drag/drag.dart';
+import 'package:keui_example/view/sliverAppBar/StickySliverPersistentHeaderDemo.dart';
+import 'package:keui_example/view/sliverAppBar/sliverAppBar.dart';
 
 import 'view/dialog/dialog.dart';
 import 'view/uploader/uploader.dart';
@@ -32,6 +35,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -53,6 +57,29 @@ class _MyHomePageState extends State<MyHomePage> {
                 title: Text('Uploader 文件上传'),
                 onTap: (){
                   Navigator.push(context, MaterialPageRoute(builder: (context)=> UploaderDemo()));
+                },
+            ),
+            ListTile(
+                trailing: Icon(Icons.keyboard_arrow_right),
+                title: Text('拖动'),
+                onTap: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=> DraggableDemo()));
+                },
+            ),
+            Divider(height:10.0,indent:0.0,color: Colors.black12,),
+            ListTile(
+                trailing: Icon(Icons.keyboard_arrow_right),
+                title: Text('Sliver-sticky'),
+                onTap: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=> StickyDemo()));
+                },
+            ),
+            Divider(height:10.0,indent:0.0,color: Colors.black12,),
+            ListTile(
+                trailing: Icon(Icons.keyboard_arrow_right),
+                title: Text('sliver-SliverPersistentHeader'),
+                onTap: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=> StickySliverPersistentHeaderDemo()));
                 },
             ),
             Divider(height:10.0,indent:0.0,color: Colors.black12,),
